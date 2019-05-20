@@ -1,0 +1,2 @@
+kotlinc ~/kotlin/src/main/kotlin/horserace.kt -include-runtime -d ~/kotlin/horse.jar
+java -jar ~/kotlin/horse.jar
