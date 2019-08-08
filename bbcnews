@@ -1,2 +1,4 @@
+#!/bin/bash
+
 curl -s http://feeds.bbci.co.uk/news/rss.xml | grep "<title>" | sed "s/            <title><\!\[CDATA\[//g;s/\]\]><\/title>//;" | grep -v "BBC News" | head -n 1
 
