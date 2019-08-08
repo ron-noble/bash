@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ -n "$1" ]
+then
+	curl \
+	   -u $1:$2 \
+	   -X GET \
+	   -H "Content-Type: application/json" \
+	   'https://jira.iconsolutions.com/jira/rest/api/2/search?jql=status%20%3D%20"Input%20Queue"%20AND%20Squad%20%3D%20"Spice%20Merchants"' \
+		| jq '.total'
+
+else 
+    echo "Provide jira credentials"
+fi

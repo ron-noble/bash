@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ -n "$1" ]
+then
+	issues=$(curl \
+	   -u $1:$2 \
+	   -X GET \
+	   -H "Content-Type: application/json" \
+	   'https://jira.iconsolutions.com/jira/rest/api/2/search?jql=Squad%20%3D%20"Spice%20Merchants"%20AND%20status%20changed%20to%20Done%20after%20-7d' \
+		| jq '.total')
+bc -l <<< 'scale=2; 7/'$issues
+
+else 
+    echo "Provide jira credentials"
+fi
+ 

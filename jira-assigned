@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ -n "$1" ]
+then
+	curl \
+	   -u $1:$2 \
+	   -X GET \
+	   -H "Content-Type: application/json" \
+	   'https://jira.iconsolutions.com/jira/rest/api/2/search?jql=status%20%3D%20%22In%20dev%22%20AND%20assignee%20in%20('$1')&fields=key' \
+		| jq '.issues' | jq -r '.[].key'
+
+else 
+    echo "Provide jira credentials"
+fi
+
+
