@@ -6,7 +6,7 @@ then
 	   -u $1:$2 \
 	   -X GET \
 	   -H "Content-Type: application/json" \
-	   'https://jira.iconsolutions.com/jira/rest/api/2/search?jql=Squad%20%3D%20"Spice%20Merchants"%20AND%20status%20changed%20to%20created%20after%20-1d' \
+	   'https://jira.iconsolutions.com/jira/rest/api/2/search?jql=Squad%20%3D%20"Spice%20Merchants"%20AND%20status%20changed%20to%20created%20after%20-2d' \
 		| jq '.issues' | jq -r '.[].key'
 
 else 
